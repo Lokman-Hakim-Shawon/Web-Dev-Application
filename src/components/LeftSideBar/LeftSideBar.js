@@ -13,13 +13,13 @@ const LeftSideBar = () => {
         <div className="text-xl p-5">
             <div className=" border-2 p-2 bg-primary text-white rounded-lg"><FaHandsHolding /></div>
             <div className="space-y-5 py-16 text-2xl text-center">
-            <IoHomeOutline className="border-2 rounded-full bg-gray-200 p-1" />
-            <BiCategory className="border-2 rounded-full bg-gray-200 p-1"/>
-            <RiLightbulbLine className="border-2 rounded-full bg-gray-200 p-1"/>
-            <FaRegBookmark className="border-2 rounded-full bg-gray-200 p-1"/>
-            <RiMedicineBottleLine className="border-2 rounded-full bg-gray-200 p-1"/>
-            <PiWechatLogoLight className="border-2 rounded-full bg-gray-200 p-1"/>
-            <IoBookSharp className="border-2 rounded-full bg-gray-200 p-1"/>
+            <div><a href='/'><IoHomeOutline className="border-2 rounded-full bg-gray-200 p-1" /></a></div>
+            <div><a href="/all_dua" className=""><BiCategory className="border-2 rounded-full bg-gray-200 p-1"/></a></div>
+            <div><a href="/memoraize" className=""><RiLightbulbLine className="border-2 rounded-full bg-gray-200 p-1"/></a></div>
+            <div><a href="/bookmark" className=""><FaRegBookmark className="border-2 rounded-full bg-gray-200 p-1"/></a></div>
+            <div><a href="/ruqayh" className=""><RiMedicineBottleLine className="border-2 rounded-full bg-gray-200 p-1"/></a></div>
+            <div><a href="/dua_info" className=""><PiWechatLogoLight className="border-2 rounded-full bg-gray-200 p-1"/></a></div>
+            <div><a href="/books" className=""><IoBookSharp className="border-2 rounded-full bg-gray-200 p-1"/></a></div>
             </div>
 
             <div className=" border-2 p-2 bg-primary text-white rounded-lg"><BiSolidDonateHeart /></div>

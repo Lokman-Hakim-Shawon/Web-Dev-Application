@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
           <Navbar />
         </div>
         <div className="lg:flex lg:gap-x-5 h-[85vh] ">
-          <div className=" border-2 h-full lg:w-1/6 bg-white hidden lg:block rounded-2xl"><MenuSidebar /></div>
+          <div className=" border-2 h-full lg:w-1/6 bg-white hidden lg:block rounded-2xl overflow-y-auto overflow-x-hidden"><MenuSidebar /></div>
           <div className="lg:basis-3/8 lg:w-4/6 bg-white  h-[85vh] rounded-t-2xl">{children}</div>
           <div className=" border-2 lg:w-1/6 bg-white hidden lg:block rounded-2xl"><RightSideBar /></div>
         </div>

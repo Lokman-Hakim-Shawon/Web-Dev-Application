@@ -10,13 +10,13 @@ import { PiProjectorScreenChartFill } from "react-icons/pi";
 const Navbar = () => {
   const navlink = (
     <>
-      <li className="flex items-center gap-x-2"><BiSolidDonateHeart className="text-lg text-primary"/> Support Us</li>
-      <li className="flex items-center gap-x-2"><LuDownload className="text-lg text-primary"/> Download Dua App</li>
-      <li className="flex items-center gap-x-2"><MdPrivacyTip className="text-lg text-primary"/> Privacy Policy</li>
-      <li className="flex items-center gap-x-2"><MdHealthAndSafety className="text-lg text-primary"/> Thanks and Credits</li>
-      <li className="flex items-center gap-x-2"><AiFillExclamationCircle className="text-lg text-primary"/> About Us</li>
-      <li className="flex items-center gap-x-2"><FaCopyright className="text-lg text-primary"/> Copyright Warning</li>
-      <li className="flex items-center gap-x-2"><PiProjectorScreenChartFill className="text-lg text-primary"/> Our Other Projects</li>
+      <li className="flex gap-x-2"><BiSolidDonateHeart className="text-lg text-primary"/> Support Us</li>
+      <li className="flex  gap-x-2"><LuDownload className="text-lg text-primary"/> Download Dua App</li>
+      <li className="flex  gap-x-2"><MdPrivacyTip className="text-lg text-primary"/> Privacy Policy</li>
+      <li className="flex  gap-x-2"><MdHealthAndSafety className="text-lg text-primary"/> Thanks and Credits</li>
+      <li className="flex  gap-x-2"><AiFillExclamationCircle className="text-lg text-primary"/> About Us</li>
+      <li className="flex  gap-x-2"><FaCopyright className="text-lg text-primary"/> Copyright Warning</li>
+      <li className="flex  gap-x-2"><PiProjectorScreenChartFill className="text-lg text-primary"/> Our Other Projects</li>
     </>
   );
   return (
@@ -42,7 +42,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="dropdown-content z-[1] p-2 shadow bg-base-100 -ml-3 min-h-[90vh] text-xs w-[50vw] space-y-5 px-2 z-20"
+              className="dropdown-content z-[1] p-2 shadow bg-base-100 -ml-3 min-h-[90vh] text-xs w-[50vw] space-y-5 px-2 z-30 md:z-0"
             >
             {navlink}
             </ul>
@@ -50,7 +50,7 @@ const Navbar = () => {
           <a className="btn btn-ghost text-xl text-secondary">Duas Page</a>
         </div>
 
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-end hidden lg:flex">
           <label className="input input-bordered flex items-center gap-2">
             <input type="text" className="" placeholder="Search" />
             <svg
