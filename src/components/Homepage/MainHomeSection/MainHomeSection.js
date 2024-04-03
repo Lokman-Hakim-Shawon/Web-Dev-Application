@@ -1,8 +1,9 @@
+import MenuSidebar from "@/components/MenuSideBar/MenuSidebar";
 
 const MainHomeSection = () => {
     return (
         <div>
-           <h1>main home section</h1> 
+            
         </div>
     );
 };
