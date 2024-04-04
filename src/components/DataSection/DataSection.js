@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const DataSection = () => {
-    const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
   const storedDuaName = localStorage.getItem("duaName");
   const number = parseInt(storedDuaName);
 
@@ -17,10 +17,10 @@ const DataSection = () => {
   }, [storedDuaName]);
 
   const filteredData = data.filter(item => item.dua_id === number);
-  console.log(filteredData,'filter')
+  console.log(filteredData, 'filter')
 
-    return (
-        <div className="border-2 bg-white max-h-[85vh] overflow-y-scroll">
+  return (
+    <div className="border-2  max-h-[85vh] overflow-y-scroll">
       {filteredData.map((item, index) => (
         <div key={index} className="pb-5">
           <div key={index} className="pb-5">
@@ -31,7 +31,7 @@ const DataSection = () => {
               </h1>
               <p>{item.top_en}</p>
               <div className="flex justify-end py-5 text-lg">
-                <p className="text-right  mx-end">{item.dua_arabic}</p>
+                <p className="text-right mx-end">{item.dua_arabic}</p>
               </div>
               {item.transliteration_en && item.translation_en ? (
                 <div>
@@ -43,6 +43,11 @@ const DataSection = () => {
                     <span>translation: </span>
                     {item.translation_en}
                   </p>
+                  <div>
+                    <audio controls className="appearance-none">
+                      <source src={item.audio} type="audio/mpeg" />
+                    </audio>
+                  </div>
                 </div>
               ) : (
                 ""
@@ -65,7 +70,7 @@ const DataSection = () => {
               </h1>
               <p>{item.top_en}</p>
               <div className="flex justify-end py-5 text-lg">
-                <p className="text-right  mx-end">{item.dua_arabic}</p>
+                <p className="text-right mx-end">{item.dua_arabic}</p>
               </div>
               {item.transliteration_en && item.translation_en ? (
                 <div>
@@ -77,6 +82,11 @@ const DataSection = () => {
                     <span>translation: </span>
                     {item.translation_en}
                   </p>
+                  <div>
+                    <audio controls>
+                      <source src={item.audio} type="audio/mpeg" />
+                    </audio>
+                  </div>
                 </div>
               ) : (
                 ""
@@ -90,7 +100,7 @@ const DataSection = () => {
         ))
       )}
     </div>
-    );
+  );
 };
 
 export default DataSection;
