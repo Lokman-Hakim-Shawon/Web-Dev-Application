@@ -19,7 +19,7 @@ const MenuSideBar = () => {
       .catch((error) => console.log(error));
     
       axios
-      .get("http://localhost:3000/subheading.json")
+      .get("http://localhost:3000/subHeading.json")
       .then((res) => setSubData(res.data))
       .catch((error) => console.log(error));
   }, []);
@@ -38,7 +38,7 @@ const MenuSideBar = () => {
   <div className="flex items-center">
     <input
       type="text"
-      className="border-2 py-2 pl-2 ml-1 mt-3"
+      className="border-2 py-2 w-full px-4 mt-3"
       placeholder="Search"
     />
     <svg

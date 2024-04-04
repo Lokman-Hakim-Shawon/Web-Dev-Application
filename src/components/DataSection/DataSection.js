@@ -9,7 +9,7 @@ const DataSection = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/subheading.json")
+      .get("http://localhost:3000/subHeading.json")
       .then((res) => {
         setData(res.data); 
       })

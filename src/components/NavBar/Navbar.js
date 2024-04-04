@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { CgProfile } from "react-icons/cg";
 import { BiSolidDonateHeart } from "react-icons/bi";
 import { LuDownload } from "react-icons/lu";
@@ -15,37 +15,52 @@ const Navbar = () => {
   const [data, setData] = useState([]);
   const [category, setCategory] = useState([]);
   const [subData, setSubData] = useState([]);
-  
+
   useEffect(() => {
     axios
-      .get("http://localhost:3000/heading.json")
+      .get("http://localhost:3000/heading")
       .then((res) => setData(res.data))
       .catch((error) => console.log(error));
 
     axios
-      .get("http://localhost:3000/category.json")
+      .get("http://localhost:3000/category")
       .then((res) => setCategory(res.data))
       .catch((error) => console.log(error));
-    
-      axios
-      .get("http://localhost:3000/subheading.json")
+
+    axios
+      .get("http://localhost:3000/subHeading")
       .then((res) => setSubData(res.data))
       .catch((error) => console.log(error));
   }, []);
   const handleClick = (duaName) => {
     localStorage.setItem("duaName", duaName);
     window.location.reload();
-
   };
   const navlink = (
     <>
-      <li className="flex gap-x-2"><BiSolidDonateHeart className="text-lg text-primary"/> Support Us</li>
-      <li className="flex  gap-x-2"><LuDownload className="text-lg text-primary"/> Download Dua App</li>
-      <li className="flex  gap-x-2"><MdPrivacyTip className="text-lg text-primary"/> Privacy Policy</li>
-      <li className="flex  gap-x-2"><MdHealthAndSafety className="text-lg text-primary"/> Thanks and Credits</li>
-      <li className="flex  gap-x-2"><AiFillExclamationCircle className="text-lg text-primary"/> About Us</li>
-      <li className="flex  gap-x-2"><FaCopyright className="text-lg text-primary"/> Copyright Warning</li>
-      <li className="flex  gap-x-2"><PiProjectorScreenChartFill className="text-lg text-primary"/> Our Other Projects</li>
+      <li className="flex gap-x-2">
+        <BiSolidDonateHeart className="text-lg text-primary" /> Support Us
+      </li>
+      <li className="flex  gap-x-2">
+        <LuDownload className="text-lg text-primary" /> Download Dua App
+      </li>
+      <li className="flex  gap-x-2">
+        <MdPrivacyTip className="text-lg text-primary" /> Privacy Policy
+      </li>
+      <li className="flex  gap-x-2">
+        <MdHealthAndSafety className="text-lg text-primary" /> Thanks and
+        Credits
+      </li>
+      <li className="flex  gap-x-2">
+        <AiFillExclamationCircle className="text-lg text-primary" /> About Us
+      </li>
+      <li className="flex  gap-x-2">
+        <FaCopyright className="text-lg text-primary" /> Copyright Warning
+      </li>
+      <li className="flex  gap-x-2">
+        <PiProjectorScreenChartFill className="text-lg text-primary" /> Our
+        Other Projects
+      </li>
     </>
   );
 
@@ -74,55 +89,69 @@ const Navbar = () => {
               tabIndex={0}
               className="dropdown-content z-[1] p-2 shadow bg-base-100 -ml-3 max-h-[90vh] lg:min-h-[90vh] text-xs w-[70vw] lg:hidden space-y-5 px-2 z-40 overflow-y-scroll"
             >
-            {data.map((data) => (
-    <div key={data.id} className="collapse  my-3 rounded-none ">
-      <input type="radio" name="my-accordion-1" defaultChecked />
-      <div className="collapse-title text-xs bg-base-200">
-        {data.cat_name_en}
-      </div>
-      <div className="collapse-content space-y-3">
-        {category.map((category, index) => (
-          <li
-            key={index}
-            className={
-              category.cat_id === data.cat_id ? `text-primary` : "hidden"
-            }
-          >
-            {category.cat_id === data.cat_id ? (
-              <div className="join join-vertical w-full">
-                <div className="collapse collapse-arrow join-item ">
-                  <input
-                    type="radio"
-                    name="my-accordion-4"
-                    defaultChecked
-                  />
-                  <div className="collapse-title text-xs ">
-                    {category.subcat_name_en}
+              {data.map((data) => (
+                <div key={data.id} className="collapse  my-3 rounded-none ">
+                  <input type="radio" name="my-accordion-1" defaultChecked />
+                  <div className="collapse-title text-xs bg-base-200">
+                    {data.cat_name_en}
                   </div>
-                  <div className="collapse-content text-secondary">
-                    {
-                      subData.map((subData,index)=><div key={index} className={
-                        category.subcat_id === subData.subcat_id ? `cursor-pointer` : "hidden"
-                      }>
-                        {
-                          category.subcat_id===subData.subcat_id?
-                          <p onClick={()=>handleClick(subData.dua_id)} className="space-y-2">{subData.dua_name_en}</p>
-                          :
-                          ''
+                  <div className="collapse-content space-y-3">
+                    {category.map((category, index) => (
+                      <li
+                        key={index}
+                        className={
+                          category.cat_id === data.cat_id
+                            ? `text-primary`
+                            : "hidden"
                         }
-                      </div>)
-                    }
+                      >
+                        {category.cat_id === data.cat_id ? (
+                          <div className="join join-vertical w-full">
+                            <div className="collapse collapse-arrow join-item ">
+                              <input
+                                type="radio"
+                                name="my-accordion-4"
+                                defaultChecked
+                              />
+                              <div className="collapse-title text-xs ">
+                                {category.subcat_name_en}
+                              </div>
+                              <div className="collapse-content text-secondary">
+                                {subData.map((subData, index) => (
+                                  <div
+                                    key={index}
+                                    className={
+                                      category.subcat_id === subData.subcat_id
+                                        ? `cursor-pointer`
+                                        : "hidden"
+                                    }
+                                  >
+                                    {category.subcat_id ===
+                                    subData.subcat_id ? (
+                                      <p
+                                        onClick={() =>
+                                          handleClick(subData.dua_id)
+                                        }
+                                        className="space-y-2"
+                                      >
+                                        {subData.dua_name_en}
+                                      </p>
+                                    ) : (
+                                      ""
+                                    )}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        ) : (
+                          ""
+                        )}
+                      </li>
+                    ))}
                   </div>
                 </div>
-              </div>
-            ) : (
-              ""
-            )}
-          </li>
-        ))}
-      </div>
-    </div>
-  ))}
+              ))}
             </ul>
           </div>
           <a className="btn btn-ghost text-xl text-secondary">Duas Page</a>
